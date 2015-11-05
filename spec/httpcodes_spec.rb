@@ -1,13 +1,22 @@
 require 'minitest/autorun'
-require './httpcodes.rb'
+require '../lib/http_codes/httpcodes.rb'
+require 'vcr'
+require 'webmock/minitest'
 
 def random_str(n)
   srand(n)
   (0..n).map { ('a'..'z').to_a[rand(26)]}.join
 end
-
-httpcodes_list = Httpcodes.new
 random_code = Random.rand(1000...9999)
+
+VCR.configure do |config|
+  config.cassette_library_dir = './spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+end
+
+VCR.use_cassette('http_csv') do
+  httpcodes_list = HttpCodesFetcher::Httpcodes.new
+
 describe 'httpcodes' do
 
   it 'should load the code list' do
@@ -31,4 +40,5 @@ describe 'httpcodes' do
     code_list.must_match "Description not found"
   end
 
+end
 end
