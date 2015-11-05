@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require '../lib/http_codes/httpcodes.rb'
+require './lib/http_codes/httpcodes.rb'
 require 'vcr'
 require 'webmock/minitest'
 
