@@ -17,15 +17,30 @@ class Httpcodes
   end
 
   def find_by_code(code)
-    @list.key(code)
+    begin
+      desc = @list.key(code)
+    rescue Exception => e
+    end
+
+    @list.has_key?(desc) ? @list[desc].to_s + " - " + desc : "Code not found"
   end
 
   def find_by_desc(desc)
-    search_val = Regexp.new desc
-    matches = @list.keys.grep search_val
-    matches.map do |k|
-      @list[k]
+    begin
+      raise "Description is not a string" unless desc.class == String
+      search_val = Regexp.new desc.upcase
+      matches = @list.keys.grep search_val
+      raise "Description not found" unless matches.size > 0
+      matches.map do |k|
+        @list[k].to_s + " - " + k.to_s
+      end
+    rescue Exception => e
+      e.message
     end
+  end
+
+  def size
+    @list.size
   end
 
 end
