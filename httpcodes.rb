@@ -19,10 +19,11 @@ class Httpcodes
   def find_by_code(code)
     begin
       desc = @list.key(code)
+      raise "Code not found" unless @list.has_key?(desc)
+      @list[desc].to_s + " - " + desc
     rescue Exception => e
+      e.message
     end
-
-    @list.has_key?(desc) ? @list[desc].to_s + " - " + desc : "Code not found"
   end
 
   def find_by_desc(desc)
