@@ -1,5 +1,4 @@
-# Http_Codes
-
+# Http_Codes [![Build Status](https://travis-ci.org/csrordzhn/httpcodes.svg?branch=master)](https://travis-ci.org/csrordzhn/httpcodes)
 ## Description
 The idea behind this project is to have HTTP codes as a searchable list in your code or usable in pry
 instead of going to Wikipedia and search for codes. In the end, its all about saving you some clicks.
