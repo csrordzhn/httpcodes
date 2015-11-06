@@ -34,3 +34,4 @@ Search by code number 100 will return the description that matches that code:
 $ http_codes code 100
 100 - CONTINUE
 ```
+For usage inside a Ruby project, refer to the file ```usage_example.rb```
