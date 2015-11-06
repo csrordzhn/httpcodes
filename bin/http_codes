@@ -1,8 +1,11 @@
 #!/usr/bin/env ruby
+# Local
+# require '../lib/http_codes/http_codes_fetcher.rb'
+# Production
 require 'http_codes'
 
 begin
-  fail ArgumentError, "Usage: findcodes [desc/code] [val]\n" if ARGV.count != 2
+  fail ArgumentError, "Usage: http_codes [desc/code] [val]\n" if ARGV.count != 2
 
   mode = ARGV[0]
   val = ARGV[1]
