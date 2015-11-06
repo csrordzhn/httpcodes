@@ -16,17 +16,21 @@ include in your project gemfile,
 gem 'http_codes'
 ```
 or require in directly in pry
-```pry
+```ruby
 require 'http_codes'
 ```
-Once installed, you can run from the command line:
-
-Search by description 'CONTINUE' will return a list of the codes that contain the value 'CONTINUE'
+Once installed, you can run from the command line.
 ```sh
-$ http_codes desc CONTINUE
-$ 100 - CONTINUE
+$ http_codes desc/code val
 ```
-Or search by code number
+Search by description 'BAD' will return a list of the codes that contain the value 'BAD':
+```sh
+$ http_codes desc BAD
+400 - BAD REQUEST
+502 - BAD GATEWAY
+```
+Search by code number 100 will return the description that matches that code:
 ```sh
 $ http_codes code 100
+100 - CONTINUE
 ```
