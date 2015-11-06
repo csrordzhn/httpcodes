@@ -1,4 +1,5 @@
-require '../lib/http_codes/httpcodes.rb'
+#!/usr/bin/env ruby
+require 'http_codes'
 
 begin
   fail ArgumentError, "Usage: findcodes [desc/code] [val]\n" if ARGV.count != 2
